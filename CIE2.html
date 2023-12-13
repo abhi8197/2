@@ -1,0 +1,52 @@
+<DOCTYPE HTML>
+    <HTML>
+        <HEAD>
+            <title>Registration and Feedback form</title>
+            <style>
+                .thanks_page {
+                    max-width: 400px;
+                    margin: 0 auto;
+                    padding: 20px;
+                    box-shadow: 0 0 10px;
+                    display: none;
+                }
+            </style>
+        </HEAD>
+        <body>
+            <div style="text-align: center;">
+                <form id="registration-form">
+                    <h1>registration Form</h1>
+                    <label for="name"> Name:</label>
+                    <input type="text" id="name" placeholder="enter your name" name="name" required><br><br>
+                    <lable for="email">Email:</lable>
+                    <input type="email" id="email" placeholder="enter your email" name="email" required><br><br>
+                    <button type="submit">Register</button>
+                </form>
+
+                <form id="Feedback-form" style="display: none;">
+                    <h1>Feedback</h1>
+                    <label for="Feedback"> Feedback:</label>
+                    <textarea id="Feedback" name="Feedback" rows="5" requried></textarea><br><br>
+                    <button type="submit"> Submit Feedback</button>
+                </form>
+
+                <div class="thanks_page" id="thanks-message">
+                    <h1>Thank You!</h1>
+                    <p>Your feedback has been submitted</p>
+                </div>
+
+                <script>
+                    document.getElementById("registration-form").addEventListener("submit",function(event){
+                        event.preventDefault();
+                        document.getElementById("registration-form").style.display="none"; // Hide registration form
+                        document.getElementById("Feedback-form").style.display = "block"; // Show feedback form
+                    });
+                    document.getElementById("Feedback-form").addEventListener("submit", function(event) {
+                        event.preventDefault(); // Prevent default form submission behavior
+                        document.getElementById("Feedback-form").style.display = "none"; // Hide feedback form
+                        document.getElementById("thanks-message").style.display = "block"; // Show confirmation message
+                    });
+                </script>
+            </div>
+        </body>
+    </HTML>
